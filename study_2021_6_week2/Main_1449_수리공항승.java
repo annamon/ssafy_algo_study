@@ -6,7 +6,7 @@ import java.util.*;
  * @author anna
  * @date 2021.06.09
  * @summary 
- * BOJ-silver3  128MB/2s (KB/ms)
+ * BOJ-silver3  128MB/2s (12948KB/120ms)
  * 길이 L인 테이프 무한개
  * 물이 새는 위치 좌우 +0.5만큼 간격 포함하여 붙이기
  * 테이프 자르기 불가능, 겹치기 가능
