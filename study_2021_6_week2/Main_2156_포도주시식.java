@@ -25,7 +25,7 @@ public class Main_2156_포도주시식 {
 		for (int n = 0; n < N; n++) {
 			wine[n] = scann.nextInt();
 		}
-		//N=1,2,3이상인 경우 나누기
+		//경우 나누기 : N=1,2,3이상
 		//N이 1인 경우
 		choice[0] = wine[0];
 		//N이 2인 경우
