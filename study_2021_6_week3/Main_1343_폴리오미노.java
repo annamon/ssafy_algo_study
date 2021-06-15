@@ -6,7 +6,7 @@ import java.util.Scanner;
  * @author anna
  * @date 2021.06.14
  * @summary 
- * BOJ-silver3  128MB/2s (12796KB/104ms)
+ * BOJ-silver5  128MB/2s (12796KB/104ms)
  * 폴리오미노 AAAA BB 무한개
  * .와X로 이루어진 보드판
  * 겹침 없이 폴리오미노로 X 다 덮기, .는 덮으면 안 됨
