@@ -33,17 +33,18 @@ public class Main_2667_단지번호붙이기 {
 			String now = br.readLine();
 			for (int j = 0; j < N; j++) {
 				map[i][j] = now.charAt(j);
+				//o:방문, x:미방문
 				if(map[i][j]=='0') map[i][j] = 'o';
 				if(map[i][j]=='1') map[i][j] = 'x';
 			}
 		}
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
-				if(map[i][j]=='o') continue;
+				if(map[i][j]=='o') continue; //방문한 곳은 넘어가기
 				else {	
-					map[i][j] = 'o';
-					house.add(new int[] {i,j});
-					bfs();
+					map[i][j] = 'o'; //방문처리
+					house.add(new int[] {i,j}); //큐에 방문 시작지점 넣기
+					bfs(); //탐색
 				}
 			}
 		}
@@ -65,22 +66,22 @@ public class Main_2667_단지번호붙이기 {
 			int r = house.peek()[0];
 			int c = house.poll()[1];
 			count++;
+			//사방탐색
 			for (int d = 0; d < 4; d++) {
 				int nr = r + dr[d];
 				int nc = c + dc[d];
-				if(check(nr,nc)) {
+				if(check(nr,nc)) { //방문가능한 곳이면 큐에 넣고 방문처리
 					house.add(new int[] {nr,nc});
 					map[nr][nc] = 'o';
 				}
 			}
 		}
+		//단지 조사 끝나면 단지 수 넣기
 		complexCnt.add(count);
 	}
 	
+	//방문 가능 범위
 	private static boolean check(int r, int c) {
 		return r>=0 && r<N && c>=0 && c<N && map[r][c]=='x';
 	}
-	
-	
-
 }
