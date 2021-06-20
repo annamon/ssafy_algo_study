@@ -30,7 +30,7 @@ public class Main_9342_염색체 {
 		}
 	}
 	
-/*	이러면 틀림
+/*	100%에서 틀린 코드. 정규식으로 풀기
 	static boolean rule;
 	public static void main(String[] args) {
 		Scanner scann = new Scanner(System.in);
