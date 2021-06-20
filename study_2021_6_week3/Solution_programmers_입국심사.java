@@ -18,29 +18,30 @@ import java.util.Arrays;
 public class Solution_programmers_입국심사 {
 
 	 public long solution(int n, int[] times) {
-	        Arrays.sort(times);
-	        long left = 1;
-	        long right = times[times.length-1] * n;
-	        long answer = right;
-	        while (left <= right) {
-	            long count = 0; //심사인원수
-	            long mid = (left + right) / 2;
-	            //심사처리
-	            for (int i = 0; i<times.length; i++) {
-	                count += mid / times[i];
-	            }
-	            //시간추가 
-	            if (count < n) {
-	                left = mid + 1;
-	            }
-	            //시간줄이기
-	            else {
-	                if (mid < answer) {
-	                    answer = mid;
-	                }
-	                right = mid - 1;
-	            }
-	        }
-	        return answer;
-	    }
+		 // 이분탐색
+	     Arrays.sort(times);
+	     long left = 1;
+	     long right = times[times.length-1] * n;
+	     long answer = right;
+	     while (left <= right) {
+	         long count = 0; //심사인원수
+	         long mid = (left + right) / 2;
+	         //심사처리
+	         for (int i = 0; i<times.length; i++) {
+	             count += mid / times[i];
+	         }
+	         //시간추가 
+	         if (count < n) {
+	             left = mid + 1;
+	         }
+	         //시간줄이기
+	         else {
+	             if (mid < answer) {
+	                 answer = mid;
+	             }
+	             right = mid - 1;
+	         }
+	     }
+	     return answer;
+	}
 }
