@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * @author anna
- * @date 2021.06.18
+ * @date 2021.06.20
  * @summary 
  * BOJ-silver4  64MB/2s (12884KB/116ms)
  * A,B,C,D,E,F 0or1개로 시작
