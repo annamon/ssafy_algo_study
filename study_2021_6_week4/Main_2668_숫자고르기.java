@@ -6,7 +6,7 @@ import java.util.*;
  * @author anna
  * @date 2021.06.21
  * @summary 
- * BOJ-gold5  128MB/1s (KB/ms)
+ * BOJ-gold5  128MB/1s (12996KB/128ms)
  * 2xN 표
  * 첫 줄 1~N 순서대로
  * 둘째 줄 1~N 랜덤
