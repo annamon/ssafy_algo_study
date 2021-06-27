@@ -13,6 +13,7 @@ import java.util.Scanner;
  * 
  * N : 통나무 개수 (5≤N≤10,000)
  * L : 통나무 높이 (1≤L≤100,000)
+ * 새로운 배열에 저장하여 구하는 방법
  */
 public class Main_11497_통나무건너뛰기2 {
 
