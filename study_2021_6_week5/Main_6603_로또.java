@@ -13,7 +13,7 @@ import java.util.Scanner;
  * 입력이 0인 경우 종료
  * 
  * K : (6<k<13)
- * S[] : 집합, 오름차순
+ * S[] : 집합, 오름차순 정렬
  * lotto[] : 6가지 번호 고른 것
  */
 public class Main_6603_로또 {
