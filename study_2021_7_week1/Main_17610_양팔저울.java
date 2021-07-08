@@ -6,7 +6,7 @@ import java.util.Scanner;
  * @author anna
  * @date 2021.07.08
  * @summary 
- * BOJ-gold5  512MB/1s (15704KB/144ms)
+ * BOJ-silver1  512MB/1s (15704KB/144ms)
  * 그릇(무게0), 서로 다른 무게의 추 K개
  * 1~S(추 무게 총합) 중 양팔저울로 계산할 수 없는 무게 개수 구하기
  * 
