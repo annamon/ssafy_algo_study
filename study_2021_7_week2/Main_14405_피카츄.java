@@ -20,6 +20,14 @@ public class Main_14405_피카츄 {
 	public static void main(String[] args) {
 		Scanner scann = new Scanner(System.in);
 		S = scann.nextLine();
+		S = S.replaceAll("pi|ka|chu", "");
+//		S = S.replace("pi", "").replace("ka", "").replace("chu", ""); 틀림
+		System.out.println(S);
+		if(S.equals("")) System.out.println("YES");
+		else System.out.println("NO");
+		scann.close();
+		
+		/*
 		int i = 0;
 		while(i<S.length()) {
 			if(S.charAt(i)=='p' && i+1< S.length()) {
@@ -38,7 +46,7 @@ public class Main_14405_피카츄 {
 		}
 		if(i>=S.length()) System.out.println("YES");
 		else System.out.println("NO");
-		scann.close();
+		*/
 	}
 
 }
