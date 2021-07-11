@@ -13,6 +13,7 @@ import java.util.Scanner;
  * 
  * S : 문자열, 길이 5,000이하
  * StringIndexOutOfBounds 주의
+ * replace가 틀리는 이유 : 순서대로 치환하기 때문이다. 반례:kpia
  */
 public class Main_14405_피카츄 {
 
