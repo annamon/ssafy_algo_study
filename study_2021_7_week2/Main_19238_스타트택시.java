@@ -20,6 +20,7 @@ import java.util.*;
  * N : 2≤N≤20
  * M : 1≤M≤N2
  * oil : 초기 연료, 1≤oil≤500,000
+ * 시간초과 미해결
  */
 public class Main_19238_스타트택시 {
 
