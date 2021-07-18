@@ -4,20 +4,20 @@ import java.util.*;
 
 /**
  * @author anna
- * @date 2021.07.17
+ * @date 2021.07.18
  * @summary 
- * BOJ-silver2  512MB/1s (59116KB/904ms)
+ * BOJ-silver2  512MB/1s (12900KB/112ms)
  * 1~N 자연수 중 M개 고른 수열 전부 출력
- * 중복 수열 출력 금지
+ * 비내림차순
  * 
  * N,M : (1≤M≤N≤8)
  * num[] : 수 목록
  * selectNum[] : M개 고른 수열
  * isSelected[] : 선택 처리
  * answer : 중복 제거
- * 중복순열
+ * 조합
  */
-public class Main_15663_N과M9 {
+public class Main_15664_N과M10 {
 
 	static int N, M;
 	static int[] num, selectNum;
@@ -34,12 +34,12 @@ public class Main_15663_N과M9 {
 			num[i] = scann.nextInt();
 		}
 		Arrays.sort(num);
-		nPir(0);
+		nCr(0, 0);
 		scann.close();
 	}
 	
-	//중복순열
-	private static void nPir(int cnt) {
+	//조합
+	private static void nCr(int cnt, int start) {
 		//M개 선택완료시
 		if(cnt==M) {
 			//현재 고른 놈들 문자열로 바꾸기
@@ -53,11 +53,11 @@ public class Main_15663_N과M9 {
 			}
 			return;
 		}
-		for (int i = 0; i < N; i++) {
+		for (int i = start; i < N; i++) {
 			if(isSelected[i]) continue;
 			selectNum[cnt] = num[i];
 			isSelected[i] = true;
-			nPir(cnt+1);
+			nCr(cnt+1, i+1);
 			isSelected[i] = false;
 		}
 	}

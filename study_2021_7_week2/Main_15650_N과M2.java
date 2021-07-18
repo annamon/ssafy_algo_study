@@ -17,29 +17,26 @@ import java.util.Scanner;
 public class Main_15650_N과M2 {
 
 	static int N, M;
-	static boolean[] isSelected;
+    static int[] num;
 	public static void main(String[] args) {
 		Scanner scann = new Scanner(System.in);
 		N = scann.nextInt();
 		M = scann.nextInt();
-		isSelected = new boolean[N+1];
-		nPr(0, 1);
+        num = new int[M];
+		nCr(0, 1);
 		scann.close();
 	}
 	
 	//조합
-	private static void nPr(int cnt, int start) {
-		//M개 선택완료시
+	private static void nCr(int cnt, int start) {
 		if(cnt==M) {
-			for (int i = 1; i <= N; i++) if(isSelected[i]) System.out.print(i+" ");
+			for (int i : num) System.out.print(i+" ");
 			System.out.println();
 			return;
 		}
 		for (int i = start; i <= N; i++) {
-			if(isSelected[i]) continue;
-			isSelected[i] = true;
-			nPr(cnt+1, i+1);
-			isSelected[i] = false;
+            num[cnt] = i;
+			nCr(cnt+1, i+1);
 		}
 	}
 
