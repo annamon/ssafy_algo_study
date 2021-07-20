@@ -23,7 +23,7 @@ import java.util.StringTokenizer;
  * mid : 중간시간
  * time[] : 사람별 풍선 만드는 데 걸리는 시간 배열
  * 
- * long 타입에 주의하자.
+ * long 타입 사용시 연산 주의하자.
  */
 public class Main_15810_풍선공장 {
 
