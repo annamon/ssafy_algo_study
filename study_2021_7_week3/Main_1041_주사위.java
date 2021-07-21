@@ -15,16 +15,16 @@ import java.util.Scanner;
  * one : 1면인 주사위 개수
  * two : 2면인 주사위 개수
  * three : 3면인 주사위 개수
- * max1 : 1면인 주사위들의 총합
- * max2 : 2면인 주사위들의 총합
- * max3 : 3면인 주사위들의 총합
+ * min1 : 1면인 주사위들의 총합
+ * min2 : 2면인 주사위들의 총합
+ * min3 : 3면인 주사위들의 총합
  * answer : 정답
  * number[] : 주사위에 적힌 수
  * comb[] : 3면 고를때 A, F 제외한 붙어있는 면 인덱스 배열
  */
 public class Main_1041_주사위 {
 	
-	static long N, one, two, three, max1, max2, max3, answer;
+	static long N, one, two, three, min1, min2, min3, answer;
 	static int[] number;
 	static int[][] comb = {{1,2}, {1,3}, {2,4}, {3,4}};
 	public static void main(String[] args) {
@@ -53,7 +53,7 @@ public class Main_1041_주사위 {
 				n = Math.min(n, number[comb[i][0]] + number[comb[i][1]]);
 			}
 			n = Math.min(n + number[0], n + number[5]);
-			max3 = three * n;
+			min3 = three * n;
 			//2면 최대 구하기
 			n = Integer.MAX_VALUE;
 			for (int i = 0; i <= 4; i++) {
@@ -62,12 +62,12 @@ public class Main_1041_주사위 {
 					n = Math.min(n, number[i] + number[j]);
 				}
 			}
-			max2 = two * n;
+			min2 = two * n;
 			//1면 최대 구하기
 			Arrays.sort(number);
-			max1 = one * number[0];
+			min1 = one * number[0];
 			//정답
-			answer = max1 + max2 + max3;
+			answer = min1 + min2 + min3;
 		}
 		System.out.println(answer);	
 	}
