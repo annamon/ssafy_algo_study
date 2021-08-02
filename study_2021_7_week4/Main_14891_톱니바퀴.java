@@ -46,12 +46,13 @@ public class Main_14891_톱니바퀴 {
 		}
 		point(); //점수 계산
 		System.out.println(answer);
+		scann.close();
 	}
 
 	//회전 로직
-	private static void turn(int num, int ccw) {
+	private static void turn(int num, int cw) {
 		int n = num;
-		int c = -ccw; //ccw=1인 경우 실제 톱니 index는 -1(-ccw) 된다.
+		int c = -cw; //cw=1인 경우 실제 톱니 index는 -1(-cw) 된다.
 		//고른 톱니바퀴 회전 (n번째)
 		pole[n][0] += c;
 		pole[n][1] += c;
@@ -74,7 +75,7 @@ public class Main_14891_톱니바퀴 {
 		
 		//고른 톱니의 왼편 톱니들 확인하기
 		n = num;
-		c = -ccw;
+		c = -cw;
 		can = true;
 		while(true) {
 			//고른 톱니가 1번째 톱니거나 더 이상 회전할 수 없다면 종료 
