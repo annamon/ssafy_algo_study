@@ -8,6 +8,9 @@ import java.util.Stack;
  * @date 2021.08.03
  * @summary 
  * BOJ-silver3  128MB/2s (26336KB/328ms)
+ * 1~n 으로 이루어진 수열
+ * push시 +, pop시 - 출력
+ * 수열을 만들 수 없는 경우 NO 출력
  * Buffer는 8192 char 넘어버리면 자동으로 방출한다.
  */
 public class Main_1874_스택수열 {
@@ -44,7 +47,7 @@ public class Main_1874_스택수열 {
 			}
 			//n을 스택에 넣은 적 없는 경우 -> 추가
 			else {
-				stack.add(start);
+				stack.push(start);
 				max = start;
 				start++;
 				sb.append("+\n");
