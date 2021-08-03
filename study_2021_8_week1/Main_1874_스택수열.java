@@ -7,7 +7,7 @@ import java.util.Stack;
  * @author anna
  * @date 2021.08.03
  * @summary 
- * BOJ-silver3  128MB/2s (KB/ms)
+ * BOJ-silver3  128MB/2s (26336KB/328ms)
  * Buffer는 8192 char 넘어버리면 자동으로 방출한다.
  */
 public class Main_1874_스택수열 {
@@ -23,22 +23,26 @@ public class Main_1874_스택수열 {
 		for (int i = 0; i < N; i++) {
 			permu[i] = Integer.parseInt(br.readLine());
 		}
-		int index = 0;
-		int start = 1;
-		int max = 0;
+		int index = 0; //permu index
+		int start = 1; //stack에 input할 값
+		int max = 0;   //stack에 넣은 최대값
 		while(index<N) {
 			int n = permu[index];
+			//n을 스택에 넣은 적 있는 경우
 			if(n <= max && !stack.isEmpty()) {
+				//스택의 peek가 아닌 경우 수열을 계속 진행할 수 없다.
 				if(stack.peek()!=n) {
 					System.out.println("NO");
 					System.exit(0);					
 				}
+				//스택의 peek인 경우 pop하고 계속 진행
 				else {
 					stack.pop();	
 					sb.append("-\n");
 					index++;
 				}
 			}
+			//n을 스택에 넣은 적 없는 경우 -> 추가
 			else {
 				stack.add(start);
 				max = start;
