@@ -1,13 +1,12 @@
 package study_2021_8_week1;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
  * @author anna
  * @date 2021.08.08
  * @summary 
- * BOJ-gold3  128MB/2s (KB/ms)
+ * BOJ-gold3  128MB/2s (15872KB/204ms)
  * -10 ~ 10 까지 수 사용
  * N개 숫자
  * S[i][j] : 숫자 i번째부터 j번째까지 합을 -, 0, +로 표시
@@ -51,7 +50,7 @@ public class Main_1248_맞춰봐 {
 		for (int i = -10; i <= 10; i++) {
 			//정답 배열에 일단 저장하고 (다음 숫자 계산을 위해)
 			number[index] = i;
-			//구간 합 조건을 만족하는지 체크
+			//구간 합 조건을 만족하면 다음 열(숫자)로 진행
 			if(canUse(index)) check(index+1);
 		}
 	}
@@ -60,11 +59,11 @@ public class Main_1248_맞춰봐 {
 	private static boolean canUse(int index) {
 		int sum = 0;
 		//index부터 시작하여 0 까지 구간합 모두 만족하는 경우 true
-		for (int i = index; i >= 0; i--) {
-			sum+= number[i];
-			if(symbol[i][index]=='-' && sum>=0) return false;
-			if(symbol[i][index]=='0' && sum!=0) return false;
-			if(symbol[i][index]=='+' && sum<=0) return false;
+		for (int r = index; r >= 0; r--) {
+			sum+= number[r];
+			if(symbol[r][index]=='-' && sum>=0) return false;
+			if(symbol[r][index]=='0' && sum!=0) return false;
+			if(symbol[r][index]=='+' && sum<=0) return false;
 		}
 		return true;
 	}
