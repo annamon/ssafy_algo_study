@@ -1,5 +1,6 @@
 package study_2021_8_week1;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -19,62 +20,78 @@ import java.util.Scanner;
 public class Main_2922_즐거운단어 {
 
 	static String s;
-	static int con, vow, n, answer=1;
-	static int[][] word;
+	static int num;
+	static long answer;
 	static boolean L;
+	static int[] funIndex = new int[10];
 	public static void main(String[] args) {
 		Scanner scann = new Scanner(System.in);
 		s = scann.next();
-		word = new int[s.length()][2];
+		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < s.length(); i++) {
-			if(i==0 && s.charAt(0)=='_' && s.length()>=3) checkFirst();
-			else if(i==s.length()-1 && s.charAt(s.length()-1)=='_') checkLast();
-			else {
-				check(i);
+			if(s.charAt(i)=='_') {
+				funIndex[num] = i;
+				num++;
 			}
+			if(s.charAt(i)=='L') L=true;
 		}
-		if(!L) n--;
-		System.out.println(L);
-		System.out.println(n);
-		for (int i = 0; i < 10; i++) {
-			System.out.print(word[i]+" ");
-		}
-		if(n==0) System.out.println(0);
-		else {
-			for (int i = 0; i <= n; i++) {
-				answer *= word[i];
-			}
-			System.out.println(answer);
-		}
+		check(sb.toString(), 0, L);
+		System.out.println(answer);
 		scann.close();
 	}
-	
-	//마지막 글자가 _인 경우
-	private static void checkLast() {
+
+
+	private static void check(String word, int i, boolean canL) {
+		if(i==s.length()) {
+			if(same(word, i)) return;
+			if(!L && !canL) return;
+			System.out.print(word+" ");
+			long cnt = 1;
+			int cntX = 0;
+			int cntO = 0;
+			for (int n = 0; n < num; n++) {
+				if(word.charAt(funIndex[n])=='X') {
+					cnt*=21;
+					cntX++;
+				}
+				else {
+					cnt*=5;
+					cntO++;
+				}
+			}
+			if(!L) {
+				cnt /= 21;				
+				if(cntX>1 && cntO!=0) {
+					cnt *= cntX;
+					int same = (int)Math.pow(2, cntX) - (cntX+1);
+					same *= (int)Math.pow(5, cntO);
+					cnt -= same;
+				}
+			}
+			System.out.println(cnt);
+			answer += cnt;
+			return;
+		}
 		
+		if(i>=3) if(same(word, i)) return;
+		StringBuilder sb = new StringBuilder();
+		sb.append(word);
+		if(s.charAt(i)=='_') {
+			check(sb.append('O').toString(), i+1, canL);
+			sb.deleteCharAt(i);
+			check(sb.append('X').toString(), i+1, true);
+		}
+		else if(isVow(s.charAt(i))) {
+			check(sb.append('O').toString(), i+1, canL);
+		}
+		else check(sb.append('X').toString(), i+1, canL);
 	}
 
-	//첫 글자가 _인 경우
-	private static void checkFirst() {
-		if(isVow(s.charAt(1)) && isVow(s.charAt(2))) {
-			word[0][0] = 21;
-			answer = 21;
-		}
-		else if(!isVow(s.charAt(1)) && s.charAt(1)!='_' 
-				&& !isVow(s.charAt(2)) && s.charAt(2)!='_') {
-			word[0][1] = 5;
-			answer = 5;
-		}
-		else {
-			word[0][0] = 21;
-			word[0][1] = 5;
-			answer = 26;
-		}
+
+	private static boolean same(String word, int i) {
+		return word.charAt(i-1) == word.charAt(i-2) && word.charAt(i-2) == word.charAt(i-3);
 	}
 
-	private static void check(int i) {
-		if(s.charAt(i-1)=='_' && s.charAt(i-1)=='_')
-	}
 
 	private static boolean isVow(char c) {
 		return c=='A' || c=='E' || c=='I' || c=='O' || c=='U';
