@@ -47,7 +47,7 @@ public class Main_2922_즐거운단어 {
 		//모든 문자 체크 완료
 		if(i==s.length()) {
 			//마지막 세 문자 같으면 리턴
-			if(same(word, i)) return;
+			if(s.length() >= 3 && same(word, i)) return;
 			//L이 없는 문자열이었고, 자음 넣을 칸이 없는 경우 리턴
 			if(!L && !canL) return;
 			System.out.print(word+" ");
@@ -57,24 +57,21 @@ public class Main_2922_즐거운단어 {
 			for (int n = 0; n < num; n++) {
 				//자음인 경우
 				if(word.charAt(funIndex[n])=='X') {
-					cnt*=21;
+					if(L) cnt*=21;
 					cntX++;
 				}
 				//모음인 경우
 				else {
-					cnt*=5;
+					if(L) cnt*=5;
 					cntO++;
 				}
 			}
 			//기본 문자에 L이 없는 경우
 			if(!L) {
-				cnt /= 21; //자음 한 칸은 L 넣기				
-				if(cntX>1 && cntO!=0) { //자음 칸이 2칸 이상이고, 모음이 0개가 아닌 경우
-					cnt *= cntX;
-					//중복 글자 빼기
-					int same = (int)Math.pow(2, cntX) - (cntX+1);
-					same *= (int)Math.pow(5, cntO);
-					cnt -= same;
+				if(cntX==1) cnt *= (int)Math.pow(5, cntO);
+				else if(cntX>1) {
+					cnt *= (int)Math.pow(21, cntX)-(int)Math.pow(20, cntX);					
+					if(cntO!=0) cnt*=(int)Math.pow(5, cntO);
 				}
 			}
 			System.out.println(cnt);
