@@ -70,7 +70,7 @@ public class Main_2922_즐거운단어 {
 			if(!L) {
 				if(cntX==1) cnt *= (int)Math.pow(5, cntO);
 				else if(cntX>1) {
-					cnt *= (int)Math.pow(21, cntX)-(int)Math.pow(20, cntX);					
+					cnt *= (long)Math.pow(21, cntX)-(long)Math.pow(20, cntX);					
 					if(cntO!=0) cnt*=(int)Math.pow(5, cntO);
 				}
 			}
