@@ -1,18 +1,13 @@
 package study_2021_8_week4;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
 /**
  * @author anna
  * @date 2021.08.26
  * @summary 
- * BOJ-gold2  256MB/1s (KB/ms)
+ * BOJ-gold2  256MB/1s (129176KB/1896ms)
  * 보석 N개, 각 보석은 무게 M, 가격 V
  * 상덕이는 가방 K개 가지고 있고 각 가방에 담을 수 있는 무게 최대 C
  * 가방에는 한 개 보석만 넣을 수 있다.
@@ -21,9 +16,12 @@ import java.util.StringTokenizer;
  * N, K : 1~300,000
  * M, V : 0~1,000,000
  * C : 1~100,000,000
+ * jewelleryList[] : 보석 배열
+ * bagList[] : 가방 무게 배열
  */
 public class Main_1202_보석도둑 {
 
+	//보석 무게 오름차순 정렬
 	public static class Jewellery implements Comparable<Jewellery>{
 		int weight;
 		int price;
@@ -34,8 +32,7 @@ public class Main_1202_보석도둑 {
 		}
 		@Override
 		public int compareTo(Jewellery o) {
-			int d = this.weight - o.weight;
-			return d==0? o.price - this.price : d;
+			return this.weight - o.weight;
 		}
 	}
 	
@@ -43,7 +40,6 @@ public class Main_1202_보석도둑 {
 	static long answer;
 	static Jewellery[] jewelleryList;
 	static int[] bagList;
-	static boolean[] isSelected;
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
@@ -54,41 +50,27 @@ public class Main_1202_보석도둑 {
 			st = new StringTokenizer(br.readLine(), " ");
 			jewelleryList[i] = new Jewellery(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
 		}
-		isSelected = new boolean[N];
 		bagList = new int[bag];
 		for (int i = 0; i < bag; i++) {
 			bagList[i] = Integer.parseInt(br.readLine());
 		}
+		//보석, 가방 모두 무게 기준 오름차순
 		Arrays.sort(jewelleryList);
 		Arrays.sort(bagList);
-		for (int i = 0; i < bag; i++) {
-			if(i>0) before = bagList[i-1];
-			check(bagList[i]);
-		}
-		System.out.println(answer);
-	}
-	
-	static int before;
-	static int start = -1;
-	private static void check(int bagWeight) {
-		int maxPrice = -1;
-		System.out.print("현재 가방 무게:" + bagWeight);
-		if(before == bagWeight) start = -1;
-		int index = start;
-		for (int i = start+1; i < N; i++) {
-			if(isSelected[i]) continue;
-			if(jewelleryList[i].weight > bagWeight) break;
-			if(jewelleryList[i].price > maxPrice) {
-				maxPrice = jewelleryList[i].price;
-				index = i;
+		
+		//가방에 넣을 수 있는 보석 고르기
+		PriorityQueue<Integer> que = new PriorityQueue<>(Comparator.reverseOrder());
+		for (int i = 0, start = 0; i < bag; i++) {
+			//가방 무게보다 적은 보석 큐에 담기
+			while(start<N && jewelleryList[start].weight <= bagList[i]) {
+				que.add(jewelleryList[start++].price);
+			}
+			//담을 수 있는 보석만 모은 큐에서 가장 비싼 것 담기
+			if(!que.isEmpty()) {
+				answer += que.poll();
 			}
 		}
-		if(index != start) {
-			System.out.println(" / 고른 가격 : "+maxPrice);
-			isSelected[index] = true;
-			start = index;
-			answer += maxPrice;			
-		}
+		System.out.println(answer);
 	}
 
 }
