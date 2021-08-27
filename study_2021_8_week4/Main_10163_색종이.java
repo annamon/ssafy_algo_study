@@ -7,7 +7,7 @@ import java.util.*;
  * @author anna
  * @date 2021.08.27
  * @summary 
- * BOJ-bronze1  64MB/1s (KB/ms)
+ * BOJ-bronze1  64MB/1s (16324KB/680ms)
  * 색종이 겹쳐 붙일 때 각 색종이별 보이는 면적 구하기
  * 
  * N : 색종이 수, 1~100
