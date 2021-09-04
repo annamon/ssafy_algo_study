@@ -5,7 +5,7 @@ import java.util.*;
 
 /**
  * @author anna
- * @date 2021.09.03
+ * @date 2021.09.04
  * @summary 
  * BOJ-gold5  128MB/1s (11544KB/88ms)
  * 마지막 숫자 사이에 = 넣기
