@@ -44,15 +44,17 @@ public class Main_1939_중량제한 {
 			int w = Integer.parseInt(st.nextToken());
 			island[a].add(new Island(b, w));
 			island[b].add(new Island(a, w));
-			max = Math.max(max, w);
+			max = Math.max(max, w); //최대값 미리 체크
 		}
 		st = new StringTokenizer(br.readLine(), " ");
 		start = Integer.parseInt(st.nextToken());
 		end = Integer.parseInt(st.nextToken());
 		right = max;
+		//이분탐색
 		while(left<=right) {
 			mid = (left+right)/2;
 			isVisited = new boolean[N+1];
+			//범위 줄이기
 			if(check(start, end, mid)) {
 				left = mid+1;
 			}
@@ -61,12 +63,14 @@ public class Main_1939_중량제한 {
 		System.out.println(right);
 	}
 	
-	static Queue<Integer> que = new LinkedList<>();
+	//bfs
 	private static boolean check(int start, int end, int mid) {
+		Queue<Integer> que = new LinkedList<>();
 		que.add(start);
 		isVisited[start] = true;
 		while(!que.isEmpty()) {
 			int now = que.poll();
+			//목적지 도착 가능
 			if(now == end) return true;
 			for (Island land : island[now]) {
 				if(!isVisited[land.to] && mid <= land.weight) {
