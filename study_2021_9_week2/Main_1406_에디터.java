@@ -56,7 +56,7 @@ public class Main_1406_에디터 {
 		while(!left.isEmpty()) {
 			right.push(left.pop());
 		}
-		//출력
+		//출력하기
 		while(!right.isEmpty()) {
 			bw.write(right.pop());
 		}
