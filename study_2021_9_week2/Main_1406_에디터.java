@@ -5,7 +5,7 @@ import java.util.*;
 
 /**
  * @author anna
- * @date 2021.09.06
+ * @date 2021.09.07
  * @summary 
  * BOJ-silver3  512MB/2s (116812KB/792ms)
  * 영어 소문자만 기록 가능, 최대 600,000글자 입력
