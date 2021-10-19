@@ -50,7 +50,7 @@ public class Main_14226_이모티콘 {
 				if(now.clip!=0 && !made[now.clip+now.view]) {
 					em.add(new Emoji(now.clip, now.clip+now.view, now.time+1));
 					made[now.clip+now.view] = true;
-				}				
+				}
 			}
 			//3.화면에 있는 이모티콘 중 하나 삭제
 			if(now.view!=0 && !made[now.view-1]) {
