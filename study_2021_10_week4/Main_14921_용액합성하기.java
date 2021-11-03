@@ -31,7 +31,7 @@ public class Main_14921_용액합성하기 {
 			R = N-1;
 			while(true) {
 				if(L==R) break;
-				System.out.println(L +" "+ R);
+//				System.out.println(L +" "+ R);
 				if(Math.abs(liquid[L]+liquid[R])<Math.abs(answer)) {
 					answer = liquid[L] + liquid[R];
 				}
