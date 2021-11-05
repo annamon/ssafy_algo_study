@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * @author anna
- * @date 2021.10.06
+ * @date 2021.11.06
  * @summary 
  * BOJ-bronze1  128MB/2s (12864KB/112ms)
  * M이상 N이하 자연수 중 완전제곱수인 것 모두 골라
