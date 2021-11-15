@@ -2,7 +2,7 @@
 
 ### 🙂 스터디원
 
-- 김우현, 김호석, 전도명, 조안나, 현선미
+- 김우현, 김호석, 전도명, 조안나, 현선미     
 
 ### ✏ 스터디 진행 방식
 
@@ -25,3 +25,6 @@
 | 2021.08.09 - 08.15 <br /> 리뷰 : 8/16 | - <a href="https://www.acmicpc.net/problem/2174">BOJ_2174 로봇 시뮬레이션</a><br />- <a href="https://www.acmicpc.net/problem/10159">BOJ_10159 저울</a>                                           | 구현 <br />그래프         | <a href="study_2021_8_week2/Main_2174_로봇시뮬레이션.java">풀이</a><br /><a href="study_2021_8_week2/Main_10159_저울.java">풀이</a>                                |
 | 2021.08.16 - 08.22 <br /> 리뷰 : 8/23 | - <a href="https://www.acmicpc.net/problem/2470">BOJ_2470 두 용액</a><br />- <a href="https://www.acmicpc.net/problem/1062">BOJ_1062 가르침</a>                                                   | 투포인터 <br />조합       | <a href="study_2021_8_week3/Main_2470_두용액.java">풀이</a><br /><a href="study_2021_8_week3/Main_1062_가르침.java">풀이</a>                                       |
 | 2021.08.23 - 08.29 <br /> 리뷰 : 8/30 | - <a href="https://www.acmicpc.net/problem/1976">BOJ_1976 여행 가자</a><br />- <a href="https://www.acmicpc.net/problem/2056">BOJ_2056 작업</a>                                                   | 유니온파인드 <br />DP     | <a href="study_2021_8_week4/Main_1976_여행가자.java">풀이</a><br /><a href="study_2021_8_week4/Main_2056_작업.java">풀이</a>                                       |
+
+---
+
