@@ -7,7 +7,7 @@ import java.io.*;
  * @author anna
  * @date 2021.11.22
  * @summary 
- * BOJ-silver2  128MB/1s (KB/ms)
+ * BOJ-silver2  128MB/1s (12964KB/120ms)
  * 두 사람의 촌수 구하기
  * 사람 수 N
  * 촌수 계산해야하는 두 사람의 번호 주어짐
