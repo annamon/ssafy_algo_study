@@ -7,39 +7,55 @@ import java.util.*;
  * @author anna
  * @date 2021.11.29
  * @summary 
- * BOJ-gold5  512MB/1s (KB/ms)
+ * BOJ-gold5  512MB/1s (90080KB/584ms)
  * 섬 1~N개
  * 다리로 이을 두 섬의 번호 출력하기
  * 여러 방법인 경우 하나만 출력
  * 
+ * N : 2~300,000
  */
 public class Main_17352_여러분의다리가되어드리겠습니다 {
 
-	static int N, a, b;
-	static boolean[] island;
+	static int N;
+	static int[] island;
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		N = Integer.parseInt(br.readLine());
-		island = new boolean[N+1];
+		//유니온파인드 부모
+		island = new int[N+1];
+		for (int i = 1; i <= N; i++) {
+			island[i] = i;
+		}
+		//다리 잇기
 		for (int n = 0; n < N-2; n++) {
 			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-			island[Integer.parseInt(st.nextToken())] = true;
-			island[Integer.parseInt(st.nextToken())] = true;
+			union(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
 		}
-		for (int i = 1; i <= N; i++) {
-			if(!island[i]) {
-				if(a==0) a = i;
-				else b = i;
+		//연결확인
+		for (int i = 2; i <= N; i++) {
+			if(!isConnect(1, i)) {
+				System.out.println(1 + " " + i);
+				break;
 			}
 		}
-		if(a==0 && b==0) System.out.println("1 2");
-		else if(b==0) {
-			if(a>1) System.out.println(a + " " + (a-1));
-			else System.out.println(a + " " + (a+1));
-		}
-		else {
-			System.out.println(a + " " + b);
-		}
+	}
+	
+	//두 섬 대표 통합
+	private static void union(int x, int y) {
+		int parentX = find(x);
+		int parentY = find(y);
+		if(parentX != parentY) island[parentY] = island[parentX];
+		return;
 	}
 
+	//연결 확인
+	private static boolean isConnect(int x, int y) {
+		return find(x)==find(y);
+	}
+	
+	//대표 찾기
+	private static int find(int x) {
+		if(x==island[x]) return island[x];
+		else return island[x] = find(island[x]);
+	}
 }
