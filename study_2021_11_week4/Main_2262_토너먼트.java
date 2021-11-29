@@ -45,7 +45,7 @@ public class Main_2262_토너먼트 {
 				answer += Math.min(list.get(index)-list.get(index+1), 
 						list.get(index)-list.get(index-1));
 			}
-			//선수 제외
+			//선수 탈락
 			list.remove(list.get(index));
 		}
 		System.out.println(answer);
