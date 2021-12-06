@@ -1,24 +1,46 @@
 package study_2021_11_week5;
 
+import java.util.*;
+import java.io.*;
+
 /**
  * @author anna
  * @date 2021.12.05
  * @summary 
  * BOJ-gold4  128MB/1s (KB/ms)
- * 어떤 경로를 오가야 하는가
- * 한 집하장에서 다른 집하장으로 최단 경로로 화물 이동하기 위해
- * 먼저 거쳐야 하는 집하장 찾기
- * 경로표 구하기
- * 소요시간 1,000 이하
+ * 기관차 고장시 소형 기관차 3대 출동
+ * 소형 기관차가 끌 수 있는 객차 수 미리 정하기
+ * 3대는 같은 객차 수 끌고가기 가능
+ * 최대한 많은 손님 목적지까지
+ * 다른 객차로 손님 이동 불가
+ * 번호가 연속적으로 이어진 객차 끌기
  * 
- * N : 집하장 개수, ~200
- * M : 경로 개수, ~10,000
+ * N : 객차 수 ~50,000
  */
 public class Main_2616_소형기관차 {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	static int N, K, answer;
+	static int[] train, dp;
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		N = Integer.parseInt(br.readLine());
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		train = new int[N];
+		for (int i = 0; i < N; i++) {
+			train[i] = Integer.parseInt(st.nextToken());
+		}
+		dp = new int[N];
+		K = Integer.parseInt(br.readLine());
+		for (int i = 0; i < N-K; i++) {
+			for (int j = 0; j < K; j++) {
+				dp[i] += train[i+j];
+			}
+		}
+		Arrays.sort(dp);
+		for (int i = 0; i < K; i++) {
+			answer += dp[N-1-i];
+		}
+		System.out.println(answer);
 	}
 
 }
