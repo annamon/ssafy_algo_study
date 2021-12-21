@@ -1,4 +1,4 @@
-package study_2021_12_week1;
+package study_2021_12_week2;
 
 import java.io.*;
 import java.util.*;
